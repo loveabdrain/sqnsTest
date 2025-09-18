@@ -8,6 +8,8 @@ use Src\Controllers\UserController;
 
 Route::post('login', [AuthController::class, 'login'])->name('user.login');
 Route::post('register', [AuthController::class, 'register'])->name('user.register');
+Route::post('reset-password', [UserController::class, 'resetPassword'])->name('user.reset-password');
+Route::post('forgot-password', [UserController::class, 'forgotPassword'])->name('user.forgot-password');
 
 Route::prefix('reviews')->group(function () {
     Route::post('/', [ReviewController::class, 'create'])->name('review.create');

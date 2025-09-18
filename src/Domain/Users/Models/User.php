@@ -2,6 +2,7 @@
 
 namespace Src\Domain\Users\Models;
 
+use App\Notifications\PasswordReset;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -55,5 +56,10 @@ class User extends Authenticatable implements JWTSubject
     public function reviews(): BelongToMany
     {
         return $this->belongsToMany(Review::class);
+    }
+
+    public function sendPasswordResetNotification($token)
+    {
+        $this->notify(new PasswordReset($token));
     }
 }
