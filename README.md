@@ -1,5 +1,7 @@
 ## Запуск
 Настройки бд сохранил в .env.example
+
+В env нужно указать smtp почты
 ```sh
 composer install
 cp .env.example .env
